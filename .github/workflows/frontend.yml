@@ -1,5 +1,9 @@
 name: frontend CI workflow
 
+env:
+  FAIL_TEST: true
+  CI: true
+
 on:
   workflow_dispatch:
   pull_request: 
