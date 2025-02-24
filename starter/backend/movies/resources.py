@@ -2,6 +2,7 @@ from flask import jsonify
 from flask.views import MethodView
 
 # Dummy database to hold movie examples
+# just trying to test the ci workflow
 movies = {
     "123": {"title": "Top Gun: Maverick", "description": "Fighter planes"},
     "456": {"title": "Sonic the Hedgehog", "description": "Blue Sega character"},
