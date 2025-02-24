@@ -3,6 +3,7 @@ from flask.views import MethodView
 
 # Dummy database to hold movie examples
 # Dummy database to hold movie examples
+# Dummy database to hold movie examples
 movies = {
     "123": {"title": "Top Gun: Maverick", "description": "Fighter planes"},
     "456": {"title": "Sonic the Hedgehog", "description": "Blue Sega character"},

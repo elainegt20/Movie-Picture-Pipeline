@@ -33,8 +33,7 @@ jobs:
         run: |
             cd starter/backend 
             pipenv run lint
-          # This will fail the job if ESLint finds any errors
-  
+          
   test:
     name: Unit test
     runs-on: ubuntu-latest
@@ -59,8 +58,7 @@ jobs:
         run: |
           cd starter/backend
           pipenv run test
-        # Without CI=true, tests would run in watch mode, waiting for file changes and not exiting
-
+        
 
   build:
     name: Build if tests and lint pass
@@ -70,6 +68,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+         python-version: '3.10'
+
+      - name: Install pipenv
+        run: pip install pipenv
+     
+      - name: Install dependencies
+        run: |
+          cd starter/backend
+          pipenv install
+          
       - name: Install dependencies
         run: |
           cd starter/backend
