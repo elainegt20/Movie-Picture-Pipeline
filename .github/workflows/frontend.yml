@@ -1,8 +1,6 @@
 name: frontend CI workflow
 
 env:
-  FAIL_TEST: false
-  CI: true
   REACT_APP_MOVIE_API_URL: http://localhost:5000
 
 on:
@@ -57,7 +55,7 @@ jobs:
       - name: Run tests
         run: |
           cd starter/frontend
-          npm test
+          CI=true npm test
         # Without CI=true, tests would run in watch mode, waiting for file changes and not exiting
 
   build:
