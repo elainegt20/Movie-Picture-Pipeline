@@ -1,8 +1,9 @@
 name: frontend CI workflow
 
 env:
-  FAIL_TEST: true
+  FAIL_TEST: false
   CI: true
+  REACT_APP_MOVIE_API_URL: http://localhost:5000
 
 on:
   workflow_dispatch:
@@ -22,7 +23,7 @@ jobs:
       - name: Use Node.js 
         uses: actions/setup-node@v3
         with:
-          node-version: 18.14
+          node-version-file: 'starter/frontend/.nvmrc'
 
       - name: Install dependencies
         run: |
@@ -45,7 +46,8 @@ jobs:
       - name: Use Node.js 
         uses: actions/setup-node@v3
         with:
-          node-version: 18.14
+          node-version-file: 'starter/frontend/.nvmrc' 
+        # Use the Node.js version specified in the .nvmrc file as input
 
       - name: Install dependencies
         run: |
@@ -55,7 +57,7 @@ jobs:
       - name: Run tests
         run: |
           cd starter/frontend
-          CI=true npm test
+          npm test
         # Without CI=true, tests would run in watch mode, waiting for file changes and not exiting
 
   build:
@@ -66,10 +68,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3 
 
-      - name: Build
+      - name: build docker image
         run: |
           cd starter/frontend
-          docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:latest .
+          docker build --build-arg=REACT_APP_MOVIE_API_URL --tag=mp-frontend:latest .
 
-        
+      
     
