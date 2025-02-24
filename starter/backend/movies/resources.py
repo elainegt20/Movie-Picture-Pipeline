@@ -4,6 +4,7 @@ from flask.views import MethodView
 # Dummy database to hold movie examples
 # adding this commet to test the github actions 4
 #adding this comment to test the github actions 5
+#adding this comment to test the github actions 6
 movies = {
     "123": {"title": "Top Gun: Maverick", "description": "Fighter planes"},
     "456": {"title": "Sonic the Hedgehog", "description": "Blue Sega character"},

@@ -27,6 +27,7 @@ jobs:
         run: |
           cd starter/backend
           pipenv install
+          pipenv install flake8 --dev
 
       - name: Lint code
         run: |
