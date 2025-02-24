@@ -2,7 +2,7 @@ from flask import jsonify
 from flask.views import MethodView
 
 # Dummy database to hold movie examples
-# adding this commet to test the github actions 2
+# adding this commet to test the github actions 3
 movies = {
     "123": {"title": "Top Gun: Maverick", "description": "Fighter planes"},
     "456": {"title": "Sonic the Hedgehog", "description": "Blue Sega character"},
