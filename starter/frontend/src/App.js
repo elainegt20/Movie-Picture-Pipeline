@@ -4,6 +4,7 @@ import MovieDetails from './components/MovieDetails';
 import './App.css';
 
 // adding this comemnt to test the deployment workflow
+// i am testing the deployment workflow again
 
 export default function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
