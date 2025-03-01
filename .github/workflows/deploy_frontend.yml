@@ -57,7 +57,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           cd starter/frontend
-          docker build --build-arg=REACT_APP_MOVIE_API_URL=http://backend/movies --tag=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build --build-arg=REACT_APP_MOVIE_API_URL=http://backend:5000 --tag=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
           
