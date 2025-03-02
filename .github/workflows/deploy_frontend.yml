@@ -2,11 +2,10 @@ name: Frontend CD workflow
 
 on:
   workflow_dispatch:  # Enables manual triggering
-  workflow_run:
-    workflows: ["deploy_backend"]  # Must match the exact name of your backend workflow
-    types:
-      - completed
-    branches: [main]
+  push:
+    branches: [ main ]
+    paths:
+      - 'starter/frontend/**'
 
 jobs:
   test:
@@ -58,7 +57,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           cd starter/frontend
-          docker build --build-arg=REACT_APP_MOVIE_API_URL=http://backend:80 --tag=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build --build-arg=REACT_APP_MOVIE_API_URL=http://a9b7c8c47387144609d1ca70daa63f85-775668749.us-east-1.elb.amazonaws.com --tag=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
           
