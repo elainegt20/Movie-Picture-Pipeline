@@ -10,6 +10,7 @@ app.register_blueprint(movies_api)
 
 # Start app
 # testing deployment
+# testing deployment 2
 if __name__ == "__main__":
     app.run(
         debug=True,
