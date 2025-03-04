@@ -5,15 +5,15 @@ set -e -o pipefail
 echo "Getting admin user identity..."
 admin_arn=$(aws sts get-caller-identity --query 'Arn' --output text)
 if [ $? -ne 0 ]; then
-    echo "❌ Failed to get admin identity"
+    echo "Failed to get admin identity"
     exit 1
 fi
-echo "✅ Admin ARN: $admin_arn"
+echo "Admin ARN: $admin_arn"
 
 # Get node role ARN
 echo "Getting node role ARN..."
 node_role_arn=$(aws eks describe-nodegroup --cluster-name cluster --nodegroup-name udacity --query 'nodegroup.nodeRole' --output text)
-echo "✅ Node Role ARN: $node_role_arn"
+echo "Node Role ARN: $node_role_arn"
 
 # Update EKS configuration
 echo "Updating kubeconfig..."
